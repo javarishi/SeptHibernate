@@ -48,10 +48,10 @@ public class NativeApiIllustrationTest {
 		empToUpdate.setSalary(5000); 
 		//test.updateEmployee(empToUpdate);
 		//test.deleteEmployee(empToUpdate);
-		test.selectAll();
+		//test.selectAll();
 		//test.updateEmployee(4, 5000);
 		// Write delete method for HQL
-		//test.hqlAggregators();
+		test.hqlAggregators();
 		sessionFactory.close();
 
 	}
@@ -128,8 +128,10 @@ public class NativeApiIllustrationTest {
 		String hql = "SELECT SUM(E.salary) as salary, E.firstName FROM Employee E GROUP BY E.firstName";
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		List result = session.createQuery(hql).list();
-		System.out.println(result);
+		List<Object[]> result = session.createQuery(hql).list();
+		for(Object[] eachObject : result){
+			System.out.println("SUM(E.salary)  :: " + eachObject[0] + " First Name:: "  + eachObject[1]);
+		}
 		session.getTransaction().commit();
 		session.close();
 	}
