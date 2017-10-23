@@ -1,5 +1,6 @@
 package com.hbm.basic;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
@@ -129,9 +130,12 @@ public class NativeApiIllustrationTest {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		List<Object[]> result = session.createQuery(hql).list();
-		for(Object[] eachObject : result){
-			System.out.println("SUM(E.salary)  :: " + eachObject[0] + " First Name:: "  + eachObject[1]);
+		System.out.println("Start time :: " + new Date());
+		for(Object[] eachArray : result){
+			System.out.println("SUM(E.salary) " + eachArray[0] + " firstName:: " +  eachArray[1]);
 		}
+		System.out.println("End time :: " + new Date());
+		
 		session.getTransaction().commit();
 		session.close();
 	}

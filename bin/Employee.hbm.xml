@@ -2,10 +2,11 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
  "-//Hibernate/Hibernate Mapping DTD//EN"
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
-
+	
 <hibernate-mapping>
 <!-- Comments are fine in hbm.xml -->
    <class name="com.hbm.basic.Employee" table="EMPLOYEE">
+   		<cache usage="read-only"/>
 	    <id name="id"  column="id" type="int">
 	     <generator class="increment" />
 	    </id>
