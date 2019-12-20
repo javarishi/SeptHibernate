@@ -9,8 +9,6 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import com.hbm.basic.Employee;
-
 public class AnnotationsTest {
 	
 	private SessionFactory sessionFactory = null; 
